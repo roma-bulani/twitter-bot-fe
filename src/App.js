@@ -35,7 +35,6 @@ function App() {
               console.log('Uploaded a blob or file!', snapshot);
             });
             const url = await getDownloadURL(storageRef);
-            setDownloadUrl(url);
             setStatus('Success');
             setPdfUrl(url);
           } catch (e) {
