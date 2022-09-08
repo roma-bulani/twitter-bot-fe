@@ -9,7 +9,7 @@ import { PdfFile } from './Components/PdfFile';
 function App() {
   const [conversationId, setConversationId] = useState('');
   const [status, setStatus] = useState('In Progress');
-  const [downloadUrl, setDownloadUrl] = useState('');
+  const [pdfUrl, setPdfUrl] = useState();
 
   return (
     <div className="App App-header">
@@ -37,7 +37,7 @@ function App() {
             const url = await getDownloadURL(storageRef);
             setDownloadUrl(url);
             setStatus('Success');
-            console.log(url);
+            setPdfUrl(url);
           } catch (e) {
             setStatus('Failure');
             console.log(e);
@@ -47,7 +47,7 @@ function App() {
         Get PDF
       </button>
       <p id="status">{status}</p>
-      <p id="url">{downloadUrl}</p>
+      {pdfUrl && <p id="url">{pdfUrl}</p>}
     </div>
   );
 }
