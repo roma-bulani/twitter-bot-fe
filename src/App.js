@@ -30,13 +30,13 @@ function App() {
                 username={res[0].username}
               />
             ).toBlob();
-            const storageRef = ref(storage, getFileName(res[0]?.text));
-            uploadBytes(storageRef, blob).then((snapshot) => {
+            const storageRef = ref(storage, `thread-${conversationId}`);
+            uploadBytes(storageRef, blob).then(async (snapshot) => {
               console.log('Uploaded a blob or file!', snapshot);
+              const url = await getDownloadURL(storageRef);
+              setStatus('Success');
+              setPdfUrl(url);
             });
-            const url = await getDownloadURL(storageRef);
-            setStatus('Success');
-            setPdfUrl(url);
           } catch (e) {
             setStatus('Failure');
             console.log(e);
