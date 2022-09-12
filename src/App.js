@@ -3,7 +3,7 @@ import { pdf } from '@react-pdf/renderer';
 import { useState } from 'react';
 import { storage } from './firebase';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
-import { getFileName, getTwitterThread } from './utils/helperFunctions';
+import { getTwitterThread } from './utils/helperFunctions';
 import { PdfFile } from './Components/PdfFile';
 
 function App() {
