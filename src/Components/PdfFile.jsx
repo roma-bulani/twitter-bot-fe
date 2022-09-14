@@ -8,6 +8,7 @@ import {
   Link
 } from '@react-pdf/renderer';
 import { Fragment } from 'react';
+import { createHash } from '../utils/helperFunctions';
 export const PdfFile = ({ allTweets, threadId, username }) => {
   const style = [
     { bgColor: 'rgb(205, 240, 234)', fontStyle: 'Courier' },
