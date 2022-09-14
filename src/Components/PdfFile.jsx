@@ -15,7 +15,7 @@ export const PdfFile = ({ allTweets, threadId, username }) => {
     { bgColor: 'rgb(249, 249, 249)', fontStyle: 'Helvetica' },
     { bgColor: 'rgb(246, 198, 234)', fontStyle: 'Times-Roman' }
   ];
-  const urlHash = createHash(username);
+  const urlHash = createHash(username + threadId);
   const indexCalc = Math.abs(parseInt(`${urlHash}`.substring(0, 3)) % 4);
   const randomIndex = indexCalc > 2 ? 0 : indexCalc;
   const styles = StyleSheet.create({
