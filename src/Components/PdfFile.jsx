@@ -9,9 +9,18 @@ import {
 } from '@react-pdf/renderer';
 import { Fragment } from 'react';
 export const PdfFile = ({ allTweets, threadId, username }) => {
+  const style = [
+    { bgColor: 'rgb(205, 240, 234)', fontStyle: 'Courier' },
+    { bgColor: 'rgb(249, 249, 249)', fontStyle: 'Helvetica' },
+    { bgColor: 'rgb(246, 198, 234)', fontStyle: 'Times-Roman' }
+  ];
+  const urlHash = createHash(username);
+  const indexCalc = Math.abs(parseInt(`${urlHash}`.substring(0, 3)) % 4);
+  const randomIndex = indexCalc > 2 ? 0 : indexCalc;
   const styles = StyleSheet.create({
     document: {
-      backgroundColor: '#E4E4E4'
+      backgroundColor: style[randomIndex].bgColor,
+      fontFamily: style[randomIndex].fontStyle
     },
     page: {
       display: 'inline-flex',
