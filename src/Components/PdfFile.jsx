@@ -11,9 +11,9 @@ import { Fragment } from 'react';
 import { createHash } from '../utils/helperFunctions';
 export const PdfFile = ({ allTweets, threadId, username }) => {
   const style = [
-    { bgColor: 'rgb(205, 240, 234)', fontStyle: 'Courier' },
-    { bgColor: 'rgb(249, 249, 249)', fontStyle: 'Helvetica' },
-    { bgColor: 'rgb(246, 198, 234)', fontStyle: 'Times-Roman' }
+    { bgColor: '#CDF0EA', fontStyle: 'Courier' },
+    { bgColor: '#F9F9F9', fontStyle: 'Helvetica' },
+    { bgColor: '#F6C6EA', fontStyle: 'Times-Roman' }
   ];
   const urlHash = createHash(username + threadId);
   const indexCalc = Math.abs(parseInt(`${urlHash}`.substring(0, 3)) % 4);
